@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary My Love ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pyidaungsu', 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .card-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            min-height: 100vh;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .page {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .page.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn {
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #ff6b81;
+            transform: scale(1.03);
+        }
+
+        /* Page 1: Envelope Style */
+        .envelope-box {
+            margin-top: 60px;
+            background: #fff0f3;
+            border: 2px dashed #ff4757;
+            padding: 40px 20px;
+            border-radius: 20px;
+            width: 100%;
+            position: relative;
+            transition: transform 0.4s ease;
+        }
+
+        .envelope-icon {
+            font-size: 65px;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: transform 0.5s ease;
+        }
+
+        .envelope-box.opening {
+            transform: scale(0.95);
+            opacity: 0.5;
+        }
+
+        .envelope-box.opening .envelope-icon {
+            transform: translateY(-20px) rotate(-10deg) scale(1.1);
+        }
+
+        .envelope-box p {
+            color: #444;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Page 2: Letter Style */
+        .letter-paper {
+            background: #fffdf9;
+            border: 1px solid #e2d9c2;
+            padding: 25px;
+            border-radius: 10px;
+            width: 100%;
+            text-align: left;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+            margin-top: 20px;
+        }
+
+        .letter-paper h3 {
+            color: #d63384;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .letter-paper p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Page 3: Interactive Question */
+        .question-box {
+            margin-top: 40px;
+            background: #fdf2f4;
+            padding: 25px;
+            border-radius: 15px;
+            width: 100%;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            position: relative;
+            min-height: 50px;
+        }
+
+        .btn-no {
+            background-color: #a4b0be;
+            position: absolute;
+            right: 20px;
+        }
+
+        .success-text {
+            display: none;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+
+        <!-- 🌸 PAGE 1: စာအိတ်မျက်နှာပြင် -->
+        <div class="page active" id="page1">
+            <div style="margin-top: 40px; color: #ff4757; font-size: 22px; font-weight: bold;">Happy Anniversary ❤️</div>
+            <div class="envelope-box" id="envelopeBox">
+                <div class="envelope-icon" id="envelopeIcon">💌</div>
+                <p><b>ချစ်ရတဲ့ ကောင်မလေးရေ...</b><br>ဒီနေ့က ဘာနေ့လေးလဲ သိလား🥰</p>
+                <button class="btn" onclick="openEnvelope()">စာအိတ်လေး ဖွင့်ရန် 🔓</button>
+            </div>
+        </div>
+
+        <!-- 🌸 PAGE 2: အမှတ်တရ စာလွှာ -->
+        <div class="page" id="page2">
+            <h2 style="color: #4a6fa5; margin-top: 20px;">အမှတ်တရ စာလွှာလေး 📜</h2>
+            <div class="letter-paper">
+                <h3>ချစ်ရတဲ့သူဆီသို့...</h3>
+                <p>
+                   ဒီနေ့က မောင်တို့ ၁လပြည့် အထိမ်းအမှတ်နေ့လေးလေ🫠❤️<br><br>
+                   တစ်လဆိုပေမယ့် အချင်းချင်း နားလည်မှုတွေ ပျော်ရွှင်စရာ အမှတ်တရတွေနဲ့ အများကြီး ပျော်ရွှင်ခဲ့ရတယ်❤️<br><br>
+                   မောင့်ဆီ မ ရောက်လာကတည်းက မောင့်ဘဝရဲ့ အထီးကျန်မှုတွေ အားငယ်မှုတွေ သိမ်ငယ်စရာတွေ ဘာမှမခံစားရတော့ဘဲ မောင့် ဘေးမှာ မောင့်ကို အားပေးမယ့် ဂရုစိုက်ပေးမယ့် အမျိုးသမီးလေးတစ်ယောက်ရှိတယ်ဆိုတဲ့ လုံခြုံမှုလေး ခံစားရတယ်။ မောင့်ကို ဒီလိုခံစားရစေတဲ့အတွက် မမ ကို အများကြီး ကျေးဇူးတင်တယ်။ ချစ်တယ် ကောင်မလေးရေ❤️
+                </p>
+            </div>
+            <button class="btn" onclick="goToPage(3)">ဆက်ရန် ➡️</button>
+        </div>
+
+        <!-- 🌸 PAGE 3: နောက်ဆုံး မေးခွန်းနှင့် No ခလုတ်ပြေးခြင်း -->
+        <div class="page" id="page3">
+            <h2 style="color: #ff4757; margin-top: 20px;">Forever Together 💕</h2>
+            <div class="question-box">
+                <p style="font-size: 16px; color: #333; line-height: 1.5;">
+                    နောက်ထပ်နှစ်တွေ အများကြီးမှာလည်း မောင့်လက်ကို တင်းတင်းဆုပ်ကိုင်ပြီး အတူတူရှေ့ဆက်သွားမယ်မလားဟင်? 😉
+                </p>
+                <div class="btn-group" id="btnContainer">
+                    <button class="btn" style="margin-top:0;" onclick="sayYes()">သေချာပေါက် အမြဲတမ်းပေါ့ ❤️</button>
+                    <button class="btn btn-no" id="noBtn" style="margin-top:0;">ဟင့်အင်း 😜</button>
+                </div>
+                <div class="success-text" id="successText">နောက်အချိန်တွေထိ နှစ်ယောက်သား ယုံကြည်မှုရှိရှိနဲ့ ရှေ့ဆက်လျှောက်လှမ်းကြမယ်နော် 🥰🎉</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openEnvelope() {
+            const envelopeBox = document.getElementById('envelopeBox');
+            envelopeBox.classList.add('opening');
+
+            setTimeout(() => {
+                goToPage(2);
+                setTimeout(() => {
+                    envelopeBox.classList.remove('opening');
+                }, 300);
+            }, 300);
+        }
+
+        function goToPage(pageNumber) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const targetPage = document.getElementById('page' + pageNumber);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+            window.scrollTo(0, 0);
+        }
+
+        const noBtn = document.getElementById('noBtn');
+        const btnContainer = document.getElementById('btnContainer');
+
+        function moveNoButton() {
+            const containerRect = btnContainer.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            const maxX = containerRect.width - btnRect.width;
+            const maxY = 60;
+
+            const randomX = Math.random() * maxX;
+            const randomY = (Math.random() - 0.5) * maxY;
+
+            noBtn.style.transform = `translate(${randomX - containerRect.width/2 + 40}px, ${randomY}px)`;
+        }
+
+        noBtn.addEventListener('mouseover', moveNoButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveNoButton();
+        });
+
+        function sayYes() {
+            document.getElementById('successText').style.display = 'block';
+            noBtn.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
